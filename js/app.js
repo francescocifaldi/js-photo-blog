@@ -1,5 +1,6 @@
-const num = 6
+let num = prompt('Quante foto vuoi vedere?')
 const cardElem = document.getElementById("card-container");
+const btn = document.getElementById("regen")
 
 function generateList(num) {
     cardElem.classList.add("d-none")
@@ -30,3 +31,9 @@ function generateList(num) {
 }
 
 generateList(num);
+
+btn.addEventListener("click", function () {
+    cardElem.innerHTML = '';
+    num = prompt('Quante email vuoi generare?')
+    generateList(num)
+})
