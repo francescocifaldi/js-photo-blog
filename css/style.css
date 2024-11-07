@@ -28,7 +28,8 @@ html {
     border: 1px solid black;
     rotate: 10deg;
     box-shadow: 10px 10px 10px black;
-    z-index: 2
+    z-index: 2;
+    cursor: pointer
 }
 
 .pin {

@@ -1,5 +1,4 @@
-//let num = prompt('Quante foto vuoi vedere?')
-let num = 7;
+let num = prompt('Quante foto vuoi vedere?')
 const row = document.getElementById("card-container");
 const regenBtn = document.getElementById("regen")
 const closeBtn = document.getElementById('close')
