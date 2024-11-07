@@ -15,7 +15,7 @@ function generateList(num) {
             for (let i = 0; i < num; i++) {
                 responseArray.push(res.data[i])
                 const newCol = document.createElement('div')
-                newCol.classList.add('col', 'col-lg-4', 'col-md-6')
+                newCol.classList.add('col-12', 'col-lg-4', 'col-md-6')
                 newCol.innerHTML += `
                                     <div class="my-card h-100">
                                         <img src="img/pin.svg" class="pin"></img>
@@ -58,6 +58,11 @@ regenBtn.addEventListener("click", function () {
 })
 
 closeBtn.addEventListener('click', function () {
+    overlayElem.classList.add('d-none')
+    bodySelector.classList.remove('overflow-y-hidden')
+})
+
+overlayElem.addEventListener('click', function () {
     overlayElem.classList.add('d-none')
     bodySelector.classList.remove('overflow-y-hidden')
 })

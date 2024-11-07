@@ -66,7 +66,7 @@ img {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
-    z-index: 9999;
+    z-index: 9998;
 }
 
 #close {
@@ -76,10 +76,12 @@ img {
 }
 
 #img-show {
-    width: 800px;
+    max-width: 80vw;
+    max-height: 80vh;
     aspect-ratio: 1/1;
     position: absolute;
+    top: 50%;
     left: 50%;
-    margin: -400px 0 0 -400px;
-    top: 50%
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
