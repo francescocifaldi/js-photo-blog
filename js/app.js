@@ -1,9 +1,12 @@
-let num = prompt('Quante foto vuoi vedere?')
+//let num = prompt('Quante foto vuoi vedere?')
+let num = 7;
 const row = document.getElementById("card-container");
 const regenBtn = document.getElementById("regen")
 const closeBtn = document.getElementById('close')
 const overlayElem = document.getElementById('overlay')
+const imageToShow = document.getElementById('img-show')
 const bodySelector = document.querySelector('body')
+let responseArray = []
 
 function generateList(num) {
     row.classList.add("d-none")
@@ -11,6 +14,7 @@ function generateList(num) {
         .get(`https://jsonplaceholder.typicode.com/photos?_limit=${num}`)
         .then((res) => {
             for (let i = 0; i < num; i++) {
+                responseArray.push(res.data[i])
                 const newCol = document.createElement('div')
                 newCol.classList.add('col', 'col-lg-4', 'col-md-6')
                 newCol.innerHTML += `
@@ -28,6 +32,7 @@ function generateList(num) {
                                     `
                 row.append(newCol);
             }
+            console.log(responseArray)
         })
         .catch((err) => {
             console.log('Errore')
@@ -35,9 +40,9 @@ function generateList(num) {
         .then(() => {
             row.classList.remove("d-none");
             const elements = document.querySelectorAll('.my-card')
-            elements.forEach((element) => {
+            elements.forEach((element, i) => {
                 element.addEventListener('click', function () {
-                    console.log(element)
+                    imageToShow.innerHTML = `<img src=${responseArray[i].url} alt=""></img>`
                     overlayElem.classList.remove('d-none')
                     bodySelector.classList.add('overflow-y-hidden')
                 })
