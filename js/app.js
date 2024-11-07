@@ -34,7 +34,14 @@ function generateList(num) {
         })
         .then(() => {
             row.classList.remove("d-none");
-            console.log(document.querySelectorAll('.col'))
+            const elements = document.querySelectorAll('.my-card')
+            elements.forEach((element) => {
+                element.addEventListener('click', function () {
+                    console.log(element)
+                    selectedBg.classList.remove('d-none')
+                    bodySelector.classList.add('overflow-y-hidden')
+                })
+            })
         })
 }
 
