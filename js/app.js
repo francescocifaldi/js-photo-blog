@@ -2,7 +2,7 @@ let num = prompt('Quante foto vuoi vedere?')
 const row = document.getElementById("card-container");
 const regenBtn = document.getElementById("regen")
 const closeBtn = document.getElementById('close')
-const selectedBg = document.getElementById('selected-bg')
+const overlayElem = document.getElementById('overlay')
 const bodySelector = document.querySelector('body')
 
 function generateList(num) {
@@ -38,7 +38,7 @@ function generateList(num) {
             elements.forEach((element) => {
                 element.addEventListener('click', function () {
                     console.log(element)
-                    selectedBg.classList.remove('d-none')
+                    overlayElem.classList.remove('d-none')
                     bodySelector.classList.add('overflow-y-hidden')
                 })
             })
@@ -54,6 +54,6 @@ regenBtn.addEventListener("click", function () {
 })
 
 closeBtn.addEventListener('click', function () {
-    selectedBg.classList.add('d-none')
+    overlayElem.classList.add('d-none')
     bodySelector.classList.remove('overflow-y-hidden')
 })
