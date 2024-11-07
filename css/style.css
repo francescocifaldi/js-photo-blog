@@ -10,6 +10,10 @@
     background-image: url(../img/cork.png);
 }
 
+/* body {
+    overflow: hidden;
+} */
+
 .my-card {
     background-color: white;
     padding: var(--personal_spacing);
@@ -48,10 +52,16 @@ img {
     border: 2px dotted red;
 }
 
-.selected-bg {
+#selected-bg {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     z-index: 1;
+}
+
+#close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
 }

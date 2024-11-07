@@ -1,6 +1,9 @@
 let num = prompt('Quante foto vuoi vedere?')
 const row = document.getElementById("card-container");
-const btn = document.getElementById("regen")
+const regenBtn = document.getElementById("regen")
+const closeBtn = document.getElementById('close')
+const selectedBg = document.getElementById('selected-bg')
+const bodySelector = document.querySelector('body')
 
 function generateList(num) {
     row.classList.add("d-none")
@@ -37,8 +40,13 @@ function generateList(num) {
 
 generateList(num);
 
-btn.addEventListener("click", function () {
+regenBtn.addEventListener("click", function () {
     row.innerHTML = '';
     num = prompt('Quante email vuoi generare?')
     generateList(num)
+})
+
+closeBtn.addEventListener('click', function () {
+    selectedBg.classList.add('d-none')
+    bodySelector.classList.remove('overflow-y-hidden')
 })
