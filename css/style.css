@@ -47,3 +47,11 @@ img {
 .debug {
     border: 2px dotted red;
 }
+
+.selected-bg {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1;
+}
