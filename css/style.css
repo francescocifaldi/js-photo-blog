@@ -1,6 +1,6 @@
 :root {
     --personal_spacing: 10px;
-    --bs-body-font-family: "Sour Gummy", sans-serif;
+    --bs-body-font-family: "Quicksand", sans-serif;
 }
 
 .main-header {
@@ -9,6 +9,10 @@
 
 .main-content {
     background-image: url(../img/cork.png);
+}
+
+h1 {
+    font-family: "Sour Gummy", sans-serif;
 }
 
 .my-card {
