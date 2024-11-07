@@ -2,6 +2,11 @@
     --personal_spacing: 10px;
 }
 
+
+html {
+    font-family: "Sour Gummy", sans-serif;
+}
+
 .main-header {
     background-image: url(../img/wall.png);
 }
