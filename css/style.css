@@ -1,10 +1,6 @@
 :root {
     --personal_spacing: 10px;
-}
-
-
-html {
-    font-family: "Sour Gummy", sans-serif;
+    --bs-body-font-family: "Sour Gummy", sans-serif;
 }
 
 .main-header {

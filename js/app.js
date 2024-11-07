@@ -33,9 +33,6 @@ function generateList(num) {
             }
             console.log(responseArray)
         })
-        .catch((err) => {
-            console.log('Errore')
-        })
         .then(() => {
             row.classList.remove("d-none");
             const elements = document.querySelectorAll('.my-card')
@@ -46,6 +43,9 @@ function generateList(num) {
                     bodySelector.classList.add('overflow-y-hidden')
                 })
             })
+        })
+        .catch((err) => {
+            console.log('Errore')
         })
 }
 
