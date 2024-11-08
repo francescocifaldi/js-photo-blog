@@ -51,18 +51,21 @@ function generateList(num) {
 
 generateList(num);
 
-regenBtn.addEventListener("click", function () {
+regenBtn.addEventListener("click", (event) => {
     row.innerHTML = '';
     num = prompt('Quante email vuoi generare?')
     generateList(num)
 })
 
-closeBtn.addEventListener('click', function () {
+closeBtn.addEventListener('click', (event) => {
+    event.stopPropagation()
     overlayElem.classList.add('d-none')
     bodySelector.classList.remove('overflow-y-hidden')
 })
 
-overlayElem.addEventListener('click', function () {
-    overlayElem.classList.add('d-none')
-    bodySelector.classList.remove('overflow-y-hidden')
+overlayElem.addEventListener('click', (event) => {
+    if (event.target === overlayElem) {
+        overlayElem.classList.add('d-none')
+        bodySelector.classList.remove('overflow-y-hidden')
+    }
 })
