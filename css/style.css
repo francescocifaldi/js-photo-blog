@@ -85,3 +85,9 @@ img {
     transform: translate(-50%, -50%);
     z-index: 9999;
 }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
