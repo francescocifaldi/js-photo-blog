@@ -1,5 +1,4 @@
-//let num = prompt('Quante foto vuoi vedere?')
-let num = 1
+let num = prompt('Quante foto vuoi vedere?')
 const row = document.getElementById("card-container");
 const regenBtn = document.getElementById("regen")
 const closeBtn = document.getElementById('close')
@@ -36,6 +35,7 @@ function generateList(num) {
         })
         .then(() => {
             row.classList.remove("d-none");
+            regenBtn.classList.remove("d-none")
             const elements = document.querySelectorAll('.my-card')
             elements.forEach((element, i) => {
                 element.addEventListener('click', function () {
@@ -49,6 +49,7 @@ function generateList(num) {
             console.log('Errore')
         })
 }
+
 
 generateList(num);
 
