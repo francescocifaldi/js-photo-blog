@@ -1,11 +1,23 @@
-let num = prompt('Quante foto vuoi vedere?')
+//let num = prompt('Quante foto vuoi vedere?')
 const row = document.getElementById("card-container");
+const form = document.getElementById("request-form")
+const formContainer = document.getElementById("form-container")
+const picsToShow = document.getElementById("pics-to-show")
 const regenBtn = document.getElementById("regen")
 const closeBtn = document.getElementById('close')
 const overlayElem = document.getElementById('overlay')
 const imageToShow = document.getElementById('img-show')
 const bodySelector = document.querySelector('body')
 let responseArray = []
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const num = picsToShow.value;
+    generateList(num);
+    regenBtn.classList.remove("d-none")
+    formContainer.classList.add("d-none")
+    picsToShow.value = ''
+})
 
 function generateList(num) {
     row.classList.add("d-none")
@@ -50,13 +62,10 @@ function generateList(num) {
         })
 }
 
-
-generateList(num);
-
 regenBtn.addEventListener("click", (event) => {
     row.innerHTML = '';
-    num = prompt('Quante email vuoi generare?')
-    generateList(num)
+    regenBtn.classList.add("d-none")
+    formContainer.classList.remove("d-none")
 })
 
 closeBtn.addEventListener('click', (event) => {

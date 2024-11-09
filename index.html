@@ -36,21 +36,17 @@
         </div>
 
         <div class="main-content flex-grow-1">
-            <!-- FORM
-            <div class="container text-align-center">
-                <form class="row g-3">
-                    <div class="col-12">
-                        <p>Inserisci il numero di immagini che vuoi visualizzare</p>
+
+            <div class="container rounded mt-4 py-3" id="form-container">
+                <form id="request-form">
+                    <div class="mb-3 text-white">
+                        <label for="pics-to-show" class="form-label">Inserisci il numero di post da
+                            visualizzare:</label>
+                        <input type="number" class="form-control" id="pics-to-show" placeholder="Digita qui...">
                     </div>
-                    <div class="col-auto">
-                        <label for="inputPassword2" class="visually-hidden">Password</label>
-                        <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3">Genera</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary" id="gen">OK</button>
                 </form>
-            </div> -->
+            </div>
 
             <div class="container py-4">
                 <div class="row g-4 mt-2" id="card-container">
