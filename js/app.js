@@ -8,6 +8,10 @@ const overlayElem = document.getElementById('overlay')
 const imageToShow = document.getElementById('img-show')
 const bodySelector = document.querySelector('body')
 
+const baseUrl = 'https://jsonplaceholder.typicode.com/'
+let urlBody = 'photos'
+let urlParam = '?_limit='
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const num = picsToShow.value;
@@ -15,8 +19,9 @@ form.addEventListener('submit', (event) => {
 })
 
 function generateList(num) {
+    const completeUrl = baseUrl + urlBody + urlParam + num
     axios
-        .get(`https://jsonplaceholder.typicode.com/photos?_limit=${num}`)
+        .get(completeUrl)
         .then((res) => {
             cardsGenerator(res, num)
             cardsOpenerGenerator(res)
@@ -34,6 +39,7 @@ regenBtn.addEventListener("click", (event) => {
 })
 
 overlayElem.addEventListener('click', (event) => {
+    event.stopPropagation()
     if (event.target === overlayElem) {
         toggleOverlay()
     }
