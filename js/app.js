@@ -4,7 +4,6 @@ const form = document.getElementById("request-form")
 const formContainer = document.getElementById("form-container")
 const picsToShow = document.getElementById("pics-to-show")
 const regenBtn = document.getElementById("regen")
-const closeBtn = document.getElementById('close')
 const overlayElem = document.getElementById('overlay')
 const imageToShow = document.getElementById('img-show')
 const bodySelector = document.querySelector('body')
@@ -32,11 +31,6 @@ function generateList(num) {
 regenBtn.addEventListener("click", (event) => {
     row.innerHTML = '';
     toggleForm()
-})
-
-closeBtn.addEventListener('click', (event) => {
-    event.stopPropagation()
-    toggleOverlay()
 })
 
 overlayElem.addEventListener('click', (event) => {
@@ -82,7 +76,16 @@ function cardsOpenerGenerator(res) {
     const elements = document.querySelectorAll('.my-card')
     elements.forEach((element, i) => {
         element.addEventListener('click', function () {
-            imageToShow.innerHTML = `<img src=${res.data[i].url} alt="">`
+            imageToShow.innerHTML = `
+                                    <button type="button" class="btn btn-outline-light" id="close">
+                                        X
+                                    </button>
+                                    <img src=${res.data[i].url} alt="">
+                                    `
+            const closeBtn = document.getElementById('close')
+            closeBtn.addEventListener('click', (event) => {
+                toggleOverlay()
+            })
             toggleOverlay()
         })
     })
