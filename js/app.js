@@ -19,14 +19,17 @@ form.addEventListener('submit', (event) => {
 })
 
 function generateList(num) {
-    const completeUrl = baseUrl + urlBody + urlParam + num
+    const completeUrl = baseUrl + urlBody
     axios
-        .get(completeUrl)
+        .get(completeUrl, {
+            params: {
+                '_limit': num
+            }
+        })
         .then((res) => {
-            cardsGenerator(res, num)
+            cardsGenerator(res)
             cardsOpenerGenerator(res)
             toggleForm()
-            picsToShow.value = ''
         })
         .catch((err) => {
             console.log('Errore')
@@ -53,11 +56,12 @@ function toggleOverlay() {
 function toggleForm() {
     regenBtn.classList.toggle("d-none")
     formContainer.classList.toggle("d-none")
+    picsToShow.value = ''
 }
 
-function cardsGenerator(res, numbers) {
+function cardsGenerator(res) {
     const fragment = document.createDocumentFragment()
-    for (let i = 0; i < numbers; i++) {
+    for (let i = 0; i < res.data.length; i++) {
         const newCol = document.createElement('div')
         newCol.classList.add('col-12', 'col-lg-4', 'col-md-6')
         newCol.innerHTML += `
@@ -96,3 +100,8 @@ function cardsOpenerGenerator(res) {
         })
     })
 }
+
+window.addEventListener("mousemove", (event) => {
+    console.log(event.clientX)
+    c
+});
